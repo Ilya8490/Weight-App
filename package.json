@@ -1,0 +1,18 @@
+{
+  "name": "health-metrics-dashboard",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace @health-metrics/frontend",
+    "dev:frontend": "npm run dev --workspace @health-metrics/frontend",
+    "dev:backend": "npm run dev --workspace @health-metrics/backend",
+    "build": "npm run build --workspaces",
+    "lint": "npm run lint --workspaces",
+    "prisma:generate": "npm run prisma:generate --workspace @health-metrics/backend",
+    "prisma:migrate": "npm run prisma:migrate --workspace @health-metrics/backend"
+  }
+}

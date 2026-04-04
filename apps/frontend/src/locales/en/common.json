@@ -1,0 +1,74 @@
+{
+  "auth": {
+    "subtitle": "Personalized health analytics",
+    "heroTitle": "Turn routine body metrics into a dashboard worth checking every day.",
+    "heroDescription": "Track your body composition, calorie targets, and long-term movement with a polished workspace designed for clarity.",
+    "featureHint": "Precision tracking with beautiful presentation.",
+    "register": "Register",
+    "login": "Login",
+    "logout": "Logout",
+    "email": "Email",
+    "password": "Password",
+    "createAccount": "Create account",
+    "signIn": "Sign in"
+  },
+  "dashboard": {
+    "title": "Body metrics, trendlines, and practical decisions in one view.",
+    "description": "Save your latest numbers, monitor changes over time, and use the built-in calculations to stay aligned with your health goals.",
+    "commandCenter": "Command Center",
+    "smartInsight": "Smart insight",
+    "input": "Input",
+    "updateMetrics": "Update body metrics",
+    "trend": "Trend",
+    "weightHistory": "Weight history over time",
+    "weightHistoryHint": "Every saved entry is plotted so the trend stays easy to read at a glance.",
+    "bodyBalance": "Body Balance",
+    "bmiVisual": "BMI visualization",
+    "balanceScale": "Weight relative to ideal range",
+    "noData": "Add your first entry to unlock analytics."
+  },
+  "metrics": {
+    "bmi": "BMI",
+    "idealWeight": "Ideal weight",
+    "idealWeightHint": "Estimated with the Devine formula.",
+    "dailyCalories": "Daily calories",
+    "dailyCaloriesHint": "Calculated using your BMR and activity multiplier."
+  },
+  "form": {
+    "weight": "Weight (kg)",
+    "height": "Height (cm)",
+    "age": "Age",
+    "gender": "Gender",
+    "male": "Male",
+    "female": "Female",
+    "activityLevel": "Activity level"
+  },
+  "activity": {
+    "sedentary": "Sedentary",
+    "light": "Lightly active",
+    "moderate": "Moderately active",
+    "active": "Active",
+    "veryActive": "Very active"
+  },
+  "actions": {
+    "saveEntry": "Save entry",
+    "saving": "Saving...",
+    "loading": "Loading...",
+    "toggleTheme": "Toggle theme"
+  },
+  "insights": {
+    "underweight": "Your BMI indicates you may be underweight. Consider increasing calorie intake and prioritizing nutrient-dense meals.",
+    "healthy": "Your BMI sits in a healthy range. Focus on consistency, recovery, and maintaining balanced nutrition.",
+    "overweight": "Your BMI suggests extra body weight. A modest calorie deficit and regular activity could help improve balance.",
+    "empty": "Save a metric entry to receive personalized rule-based recommendations."
+  },
+  "bmiStatus": {
+    "underweight": "Underweight",
+    "healthy": "Healthy range",
+    "overweight": "Overweight",
+    "obese": "Obese"
+  },
+  "errors": {
+    "generic": "Something went wrong. Please try again."
+  }
+}
