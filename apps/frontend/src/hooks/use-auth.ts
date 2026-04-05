@@ -11,6 +11,7 @@ interface Credentials {
 export const useAuth = () => {
   const [loading, setLoading] = useState(false);
   const setUser = useAppStore((state) => state.setUser);
+  const clearSession = useAppStore((state) => state.clearSession);
 
   const execute = async (path: string, body?: Credentials) => {
     setLoading(true);
@@ -31,8 +32,11 @@ export const useAuth = () => {
   const logout = async () => {
     setLoading(true);
     try {
-      await api<{ success: true }>('/auth/logout', { method: 'POST' });
-      setUser(null);
+      try {
+        await api<{ success: true }>('/auth/logout', { method: 'POST' });
+      } finally {
+        clearSession();
+      }
     } finally {
       setLoading(false);
     }

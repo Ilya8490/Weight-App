@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { z } from 'zod';
 import { useAuth } from '../hooks/use-auth';
+import { useAppStore } from '../store/app-store';
 import type { AuthFormValues } from '../types/forms';
 
 const schema = z.object({
@@ -17,6 +18,7 @@ export const AuthPage = () => {
   const [mode, setMode] = useState<'login' | 'register'>('register');
   const [error, setError] = useState('');
   const { loading, login, register: registerUser } = useAuth();
+  const continueAsGuest = useAppStore((state) => state.continueAsGuest);
   const {
     register,
     handleSubmit,
@@ -128,6 +130,24 @@ export const AuthPage = () => {
               {loading ? t('actions.loading') : mode === 'register' ? t('auth.createAccount') : t('auth.signIn')}
             </button>
           </form>
+
+          <div className="my-6 flex items-center gap-4">
+            <div className="h-px flex-1 bg-[color:var(--line)]" />
+            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-[color:var(--muted)]">
+              {t('auth.or')}
+            </span>
+            <div className="h-px flex-1 bg-[color:var(--line)]" />
+          </div>
+
+          <button
+            type="button"
+            onClick={continueAsGuest}
+            className="w-full rounded-2xl border border-[color:var(--line)] bg-[color:var(--panel-strong)] px-5 py-4 text-sm font-extrabold uppercase tracking-[0.24em] text-[color:var(--text)] transition hover:border-[color:var(--accent)] hover:text-[color:var(--accent)]"
+          >
+            {t('auth.continueAsGuest')}
+          </button>
+
+          <p className="mt-4 text-center text-sm text-[color:var(--muted)]">{t('auth.guestHint')}</p>
         </div>
       </motion.div>
     </div>

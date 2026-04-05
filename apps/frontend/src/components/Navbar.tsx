@@ -12,6 +12,7 @@ export const Navbar = ({ onLogout }: NavbarProps) => {
   const theme = useAppStore((state) => state.theme);
   const toggleTheme = useAppStore((state) => state.toggleTheme);
   const user = useAppStore((state) => state.user);
+  const mode = useAppStore((state) => state.mode);
 
   return (
     <header className="sticky top-0 z-20 border-b border-[color:var(--line)] bg-[color:var(--panel)] backdrop-blur-2xl">
@@ -21,7 +22,7 @@ export const Navbar = ({ onLogout }: NavbarProps) => {
             Health Metrics Dashboard
           </p>
           <p className="mt-1 text-sm text-[color:var(--muted)]">
-            {user?.email ?? t('auth.subtitle')}
+            {mode === 'guest' ? t('auth.guestActive') : user?.email ?? t('auth.subtitle')}
           </p>
         </div>
 
@@ -40,7 +41,7 @@ export const Navbar = ({ onLogout }: NavbarProps) => {
             onClick={onLogout}
             className="rounded-full bg-[color:var(--accent)] px-4 py-2 text-sm font-bold text-slate-950 transition hover:bg-[color:var(--accent-strong)]"
           >
-            {t('auth.logout')}
+            {mode === 'guest' ? t('auth.exitGuest') : t('auth.logout')}
           </button>
         </div>
       </div>

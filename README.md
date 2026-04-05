@@ -10,6 +10,7 @@ Health Metrics Dashboard is a full-stack monorepo for tracking body metrics, vis
 - Recharts-powered weight trend visualization
 - Rule-based health insights
 - Dark mode, localization, loading states, and polished responsive UI
+- Guest mode with browser-only history for instant testing
 - Shared TypeScript package for calculations and API-facing types
 
 ## Tech Stack
@@ -69,6 +70,23 @@ In separate terminals:
 npm run dev:backend
 npm run dev:frontend
 ```
+
+### 5. Create a demo account with sample history
+
+```bash
+npm run prisma:seed
+```
+
+Demo credentials:
+
+- Email: `demo@healthmetrics.app`
+- Password: `Demo123456`
+
+The seed command automatically runs Prisma client generation first, so you can use it safely after configuring your database.
+
+### Guest mode
+
+You can also explore the dashboard without creating an account by choosing `Continue as guest` on the auth screen. Guest entries are stored only in the current browser.
 
 ## API Routes
 

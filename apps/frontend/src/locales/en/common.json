@@ -7,10 +7,15 @@
     "register": "Register",
     "login": "Login",
     "logout": "Logout",
+    "exitGuest": "Exit guest",
     "email": "Email",
     "password": "Password",
     "createAccount": "Create account",
-    "signIn": "Sign in"
+    "signIn": "Sign in",
+    "continueAsGuest": "Continue as guest",
+    "guestHint": "Guest mode stores your metrics only in this browser, so you can explore the dashboard before creating an account.",
+    "guestActive": "Guest mode with local-only history",
+    "or": "or"
   },
   "dashboard": {
     "title": "Body metrics, trendlines, and practical decisions in one view.",

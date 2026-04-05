@@ -12,15 +12,23 @@ function App() {
 
   const [initializing, setInitializing] = useState(true);
   const user = useAppStore((state) => state.user);
+  const mode = useAppStore((state) => state.mode);
   const { me, logout } = useAuth();
   const { fetchHistory } = useMetrics();
 
   useEffect(() => {
     const initialize = async () => {
+      const store = useAppStore.getState();
+
+      if (store.mode === 'guest' && store.user) {
+        setInitializing(false);
+        return;
+      }
+
       try {
         await me();
       } catch {
-        useAppStore.getState().setUser(null);
+        store.clearSession();
       } finally {
         setInitializing(false);
       }
@@ -35,7 +43,7 @@ function App() {
     }
 
     void fetchHistory();
-  }, [user?.id]);
+  }, [user?.id, mode]);
 
   if (initializing) {
     return (
