@@ -82,7 +82,7 @@ Demo credentials:
 - Email: `demo@healthmetrics.app`
 - Password: `Demo123456`
 
-The seed command automatically runs Prisma client generation first, so you can use it safely after configuring your database.
+The seed command automatically runs Prisma client generation first and loads `apps/backend/.env`, so you can use it safely after configuring your database.
 
 ### Guest mode
 

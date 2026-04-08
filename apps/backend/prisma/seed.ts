@@ -1,6 +1,16 @@
 import bcrypt from 'bcryptjs';
 import { PrismaClient } from '@prisma/client';
+import dotenv from 'dotenv';
+import { fileURLToPath } from 'node:url';
+import path from 'node:path';
 import { buildMetrics, type ActivityLevel, type Gender, type MetricInput } from '@health-metrics/shared';
+
+const currentFilePath = fileURLToPath(import.meta.url);
+const currentDirectory = path.dirname(currentFilePath);
+
+dotenv.config({
+  path: path.resolve(currentDirectory, '../.env')
+});
 
 const prisma = new PrismaClient();
 
