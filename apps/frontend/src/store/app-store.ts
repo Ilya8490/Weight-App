@@ -13,7 +13,8 @@ interface AppState {
   toggleTheme: () => void;
   setUser: (user: User | null) => void;
   continueAsGuest: () => void;
-  clearSession: () => void;
+  clearAuthenticatedSession: () => void;
+  exitGuestMode: () => void;
   setMetrics: (payload: {
     history: MetricEntry[];
     latestEntry: MetricEntry | null;
@@ -54,13 +55,15 @@ export const useAppStore = create<AppState>()(
           latestEntry: state.mode === 'guest' ? state.latestEntry : null,
           insightKey: state.mode === 'guest' ? state.insightKey : 'insights.empty'
         })),
-      clearSession: () =>
+      clearAuthenticatedSession: () =>
         set({
           user: null,
-          mode: 'guest',
-          history: [],
-          latestEntry: null,
-          insightKey: 'insights.empty'
+          mode: 'guest'
+        }),
+      exitGuestMode: () =>
+        set({
+          user: null,
+          mode: 'guest'
         }),
       setMetrics: ({ history, latestEntry, insight }) =>
         set({

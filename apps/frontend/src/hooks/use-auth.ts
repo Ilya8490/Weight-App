@@ -11,7 +11,9 @@ interface Credentials {
 export const useAuth = () => {
   const [loading, setLoading] = useState(false);
   const setUser = useAppStore((state) => state.setUser);
-  const clearSession = useAppStore((state) => state.clearSession);
+  const mode = useAppStore((state) => state.mode);
+  const clearAuthenticatedSession = useAppStore((state) => state.clearAuthenticatedSession);
+  const exitGuestMode = useAppStore((state) => state.exitGuestMode);
 
   const execute = async (path: string, body?: Credentials) => {
     setLoading(true);
@@ -30,12 +32,17 @@ export const useAuth = () => {
   const register = (credentials: Credentials) => execute('/auth/register', credentials);
   const login = (credentials: Credentials) => execute('/auth/login', credentials);
   const logout = async () => {
+    if (mode === 'guest') {
+      exitGuestMode();
+      return;
+    }
+
     setLoading(true);
     try {
       try {
         await api<{ success: true }>('/auth/logout', { method: 'POST' });
       } finally {
-        clearSession();
+        clearAuthenticatedSession();
       }
     } finally {
       setLoading(false);

@@ -28,7 +28,7 @@ function App() {
       try {
         await me();
       } catch {
-        store.clearSession();
+        store.clearAuthenticatedSession();
       } finally {
         setInitializing(false);
       }
